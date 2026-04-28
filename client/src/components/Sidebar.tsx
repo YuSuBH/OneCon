@@ -7,7 +7,7 @@ import {
 } from "lucide-react";
 import { type Message, type Project, type Version } from "../types";
 import { Link } from "react-router-dom";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 
 interface SidebarProps {
   isMenuOpen: boolean;
@@ -28,6 +28,14 @@ const Sidebar = ({
   const [input, setInput] = useState("");
 
   const handleRollback = async (versionId: string) => {};
+
+  const handleRevisions = async (e: FormEvent) => {
+    e.preventDefault();
+    setIsGenerating(true);
+    setTimeout(() => {
+      setIsGenerating(false);
+    }, 3000);
+  };
 
   useEffect(() => {
     if (messageRef.current) {
@@ -139,7 +147,7 @@ const Sidebar = ({
         </div>
 
         {/* input area */}
-        <form className="m-3 relative">
+        <form onSubmit={handleRevisions} className="m-3 relative">
           <div className="flex items-center gap-2">
             <textarea
               onChange={(e) => setInput(e.target.value)}
@@ -149,8 +157,10 @@ const Sidebar = ({
               className="flex-1 p-3 rounded-xl resize-none text-sm outline-none ring ring-gray-700 focus:ring-indigo-500 bg-gray-800 text-gray-100 placeholder-gray-400 transition-all"
               disabled={isGenerating}
             />
-            <button>
-              {/* disabled={isGenerating || !input} */}
+            <button
+              disabled={isGenerating || !input.trim()}
+              className="absolute bottom-2.5 right-2.5 rounded-full bg-linear-to-r from-indigo-500 to-indigo-600 hover:from-indigo-600 hover:to-indigo-500 text-white transition-colors disabled:opacity-60"
+            >
               {isGenerating ? (
                 <Loader2Icon className="size-7 p-1.5 animate-spin text-white" />
               ) : (
