@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { assets } from "../assets/assets";
 import { Link, useNavigate } from "react-router-dom";
+import api from "../configs/axios";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = React.useState(false);
   const navigate = useNavigate();
+  const [credits, setCredits] = useState(0);
+
+  const getCredits = async () => {
+    try {
+      const { data } = await api.get("/api/user/credits");
+      setCredits(data.credits);
+    } catch (error: any) {
+      console.log(error);
+    }
+  };
 
   return (
     <>
@@ -21,6 +32,8 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center gap-3">
+          {/*  TODO display credits */}
+
           <button
             onClick={() => navigate("/auth/signin")}
             className="px-6 py-1.5 max-sm:text-sm bg-indigo-600 active:scale-95 hover:bg-indigo-700 transition rounded"

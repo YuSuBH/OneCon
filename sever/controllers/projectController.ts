@@ -120,6 +120,21 @@ export const makeRevision = async (req: Request, res: Response) => {
 
     const code = codeGenerationResponse.choices[0].message.content || "";
 
+    if (!code) {
+      await prisma.conversation.create({
+        data: {
+          role: "assistant",
+          content: `Unable to generate the website, please try again.`,
+          projectId,
+        },
+      });
+      await prisma.user.update({
+        where: { id: userId },
+        data: { credits: { increment: 5 } },
+      });
+      return;
+    }
+
     const version = await prisma.version.create({
       data: {
         code: code
@@ -171,7 +186,10 @@ export const rollbackToVersion = async (req: Request, res: Response) => {
       return res.status(401).json({ message: "Unauthorized" });
     }
 
-    const { projectId, versionId } = req.params as { projectId: string; versionId: string };
+    const { projectId, versionId } = req.params as {
+      projectId: string;
+      versionId: string;
+    };
 
     const project = await prisma.websiteProject.findFirst({
       where: { id: projectId, userId },

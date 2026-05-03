@@ -8,8 +8,11 @@ const Home = () => {
   const onSubmitHandler = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    //TODO Check sign in and handle submit and navigate to new project page
+
     setLoading(true);
 
+    // simulate API call
     setTimeout(() => {
       setLoading(false);
     }, 3000);
