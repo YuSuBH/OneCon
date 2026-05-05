@@ -20,7 +20,11 @@ const MyProjects = () => {
       setProjects(data.projects);
       setLoading(false);
     } catch (error: any) {
-      toast.error(error.response?.data?.message || error.message || "Failed to fetch projects");
+      toast.error(
+        error.response?.data?.message ||
+          error.message ||
+          "Failed to fetch projects",
+      );
       console.log(error);
     }
   };
@@ -37,7 +41,11 @@ const MyProjects = () => {
       toast.success(data.message || "Project deleted successfully");
       fetchProjects();
     } catch (error: any) {
-      toast.error(error.response?.data?.message || error.message || "Failed to delete project");
+      toast.error(
+        error.response?.data?.message ||
+          error.message ||
+          "Failed to delete project",
+      );
       console.log(error);
     }
   };
@@ -76,7 +84,7 @@ const MyProjects = () => {
                 <div
                   onClick={() => navigate(`/projects/${project.id}`)}
                   key={project.id}
-                  className="relative group w-72 max-sm:mx-auto cursor-pointer bg-[#DFF1F1] border border-[#BBD5DA] rounded-lg overflow-hidden shadow-md group hover:shadow-[#FF0000]/30 hover:border-[#FF0000]/80 transition-all duration-300"
+                  className="relative group w-72 max-sm:mx-auto cursor-pointer bg-[#DFF1F1] border border-[#BBD5DA] rounded-lg overflow-hidden shadow-md group hover:bg-[#FF0000]/80 hover:shadow-[#FF0000]/30 hover:border-[#FF0000]/80 transition-all duration-300"
                 >
                   <div className="relative w-full h-40 bg-[#F5F5F5] overflow-hidden border-b border-[#BBD5DA]">
                     {project.current_code ? (
@@ -94,7 +102,7 @@ const MyProjects = () => {
                   </div>
 
                   {/* content */}
-                  <div className="p-4 text-black bg-linear-180 from-transparent group-hover:from-[#FF0000] to-transparent transition-colors">
+                  <div className="p-4 text-black group-hover:text-white transition-colors">
                     <div className="flex items-start justify-between">
                       <h2 className="text-lg font-medium line-clamp-2">
                         {project.name}
@@ -103,7 +111,7 @@ const MyProjects = () => {
                         Website
                       </button>
                     </div>
-                    <p className="text-gray-600 mt-1 text-sm line-clamp-2">
+                    <p className="text-gray-600 group-hover:text-white/80 mt-1 text-sm line-clamp-2">
                       {project.initial_prompt}
                     </p>
 
@@ -111,7 +119,7 @@ const MyProjects = () => {
                       onClick={(e) => e.stopPropagation()}
                       className="flex justify-between items-center mt-6"
                     >
-                      <span className="text-xs text-gray-500">
+                      <span className="text-xs text-gray-500 group-hover:text-white/70">
                         {new Date(project.createdAt).toLocaleDateString()}
                       </span>
 

@@ -17,7 +17,11 @@ const Community = () => {
       setProjects(data.projects);
       setLoading(false);
     } catch (error: any) {
-      toast.error(error.response?.data?.message || error.message || "Failed to fetch community projects");
+      toast.error(
+        error.response?.data?.message ||
+          error.message ||
+          "Failed to fetch community projects",
+      );
       console.log(error);
     }
   };
@@ -47,7 +51,7 @@ const Community = () => {
                   key={project.id}
                   to={`/view/${project.id}`}
                   target="_blank"
-                  className="w-72 max-sm:mx-auto cursor-pointer bg-[#DFF1F1] border border-[#BBD5DA] rounded-lg overflow-hidden group hover:border-[#FF0000]/80 transition-all duration-300"
+                  className="w-72 max-sm:mx-auto cursor-pointer bg-[#DFF1F1] border border-[#BBD5DA] rounded-lg overflow-hidden group hover:bg-[#FF0000]/80 hover:border-[#FF0000]/80 transition-all duration-300"
                 >
                   {/* mini preview */}
                   <div className="relative w-full h-40 bg-[#F5F5F5] overflow-hidden border-b border-[#BBD5DA]">
@@ -66,7 +70,7 @@ const Community = () => {
                   </div>
 
                   {/* content */}
-                  <div className="p-4 text-black bg-linear-180 from-transparent group-hover:from-[#FF0000] to-transparent transition-colors">
+                  <div className="p-4 text-black group-hover:text-white transition-colors">
                     <div className="flex items-start justify-between">
                       <h2 className="text-lg font-medium line-clamp-2">
                         {project.name}
@@ -75,12 +79,12 @@ const Community = () => {
                         Website
                       </button>
                     </div>
-                    <p className="text-gray-600 mt-1 text-sm line-clamp-2">
+                    <p className="text-gray-600 group-hover:text-white/80 mt-1 text-sm line-clamp-2">
                       {project.initial_prompt}
                     </p>
 
                     <div className="flex justify-between items-center mt-6">
-                      <span className="text-xs text-gray-500">
+                      <span className="text-xs text-gray-500 group-hover:text-white/70">
                         {new Date(project.createdAt).toLocaleDateString()}
                       </span>
 
