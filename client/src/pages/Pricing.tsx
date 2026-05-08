@@ -14,8 +14,6 @@ interface Plan {
 const Pricing = () => {
   const [plans] = useState<Plan[]>(appPlans);
 
-  const handlePurchase = async (planId: string) => {};
-
   return (
     <>
       <div className="w-full max-w-5xl mx-auto z-20 max-md:px-4 min-h-[80vh]">
@@ -68,10 +66,7 @@ const Pricing = () => {
                     </li>
                   ))}
                 </ul>
-                <button
-                  onClick={() => handlePurchase(plan.id)}
-                  className="w-full py-2 px-4 bg-[#FF0000] hover:bg-[#FF0000] active:scale-95 text-sm rounded-md transition-all"
-                >
+                <button className="w-full py-2 px-4 bg-[#FF0000] hover:bg-[#FF0000] active:scale-95 text-sm rounded-md transition-all">
                   Buy Now
                 </button>
               </div>
