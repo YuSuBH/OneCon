@@ -2,7 +2,17 @@
 
 AI Site Build is a powerful tool designed to streamline the process of creating and managing AI-powered websites.
 
+## Features
+
+- **Chat to Improve**: Continuously refine your website by simply chatting with our advanced AI. Ask for changes, and watch them happen.
+- **Live Preview**: See your changes instantly. Our live preview ensures you know exactly how your site will look before publishing.
+- **Live Manual Edit**: Want precise control? Edit the website content directly on the page while the AI handles the complex structure.
+- **Rollback Versions**: Never fear making mistakes. Effortlessly rollback to any previous preview version of your website with a single click.
+- **Publish Instantly**: Ready to go live? Deploy your generated website instantly to the world with a single click, no complex hosting required.
+- **Community Projects**: Get inspired by others. Browse, preview, and remix incredible AI-generated websites created by our active community.
+
 ## Project Structure
+
 
 The project is split into two main parts:
 
