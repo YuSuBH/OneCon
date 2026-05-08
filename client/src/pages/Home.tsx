@@ -5,6 +5,13 @@ import {
   Eye,
   Edit3,
   ArrowRight,
+  Globe,
+  Users,
+  Command,
+  Hexagon,
+  Sparkles,
+  Triangle,
+  Circle,
 } from "lucide-react";
 import React, { useState } from "react";
 import { useSession } from "../lib/auth-client";
@@ -73,6 +80,18 @@ const Home = () => {
       title: "Rollback Versions",
       description:
         "Never fear making mistakes. Effortlessly rollback to any previous preview version of your website with a single click.",
+    },
+    {
+      icon: <Globe className="size-8 text-[#FF0000]" />,
+      title: "Publish Instantly",
+      description:
+        "Ready to go live? Deploy your generated website instantly to the world with a single click, no complex hosting required.",
+    },
+    {
+      icon: <Users className="size-8 text-[#FF0000]" />,
+      title: "Community Projects",
+      description:
+        "Get inspired by others. Browse, preview, and remix incredible AI-generated websites created by our active community.",
     },
   ];
 
@@ -161,7 +180,7 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {features.map((feature, index) => (
               <div
                 key={index}
@@ -189,31 +208,26 @@ const Home = () => {
             Trusted by innovative teams worldwide
           </p>
           <div className="flex flex-wrap items-center justify-center gap-12 md:gap-24 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
-            <img
-              className="h-8 md:h-10 object-contain"
-              src="https://saasly.prebuiltui.com/assets/companies-logo/framer.svg"
-              alt="Framer"
-            />
-            <img
-              className="h-8 md:h-10 object-contain"
-              src="https://saasly.prebuiltui.com/assets/companies-logo/huawei.svg"
-              alt="Huawei"
-            />
-            <img
-              className="h-8 md:h-10 object-contain"
-              src="https://saasly.prebuiltui.com/assets/companies-logo/instagram.svg"
-              alt="Instagram"
-            />
-            <img
-              className="h-8 md:h-10 object-contain"
-              src="https://saasly.prebuiltui.com/assets/companies-logo/microsoft.svg"
-              alt="Microsoft"
-            />
-            <img
-              className="h-8 md:h-10 object-contain"
-              src="https://saasly.prebuiltui.com/assets/companies-logo/walmart.svg"
-              alt="Walmart"
-            />
+            <div className="flex items-center gap-3 text-2xl md:text-3xl font-extrabold text-gray-800 tracking-tight transition-transform hover:scale-105 duration-300 cursor-default">
+              <Command className="size-8 md:size-10 text-gray-900" />
+              Acme Corp
+            </div>
+            <div className="flex items-center gap-3 text-2xl md:text-3xl font-extrabold text-gray-800 tracking-tight transition-transform hover:scale-105 duration-300 cursor-default">
+              <Hexagon className="size-8 md:size-10 text-gray-900" />
+              Quantum
+            </div>
+            <div className="flex items-center gap-3 text-2xl md:text-3xl font-extrabold text-gray-800 tracking-tight transition-transform hover:scale-105 duration-300 cursor-default">
+              <Sparkles className="size-8 md:size-10 text-gray-900" />
+              Echo
+            </div>
+            <div className="flex items-center gap-3 text-2xl md:text-3xl font-extrabold text-gray-800 tracking-tight transition-transform hover:scale-105 duration-300 cursor-default">
+              <Triangle className="size-8 md:size-10 text-gray-900" />
+              Zenith
+            </div>
+            <div className="flex items-center gap-3 text-2xl md:text-3xl font-extrabold text-gray-800 tracking-tight transition-transform hover:scale-105 duration-300 cursor-default">
+              <Circle className="size-8 md:size-10 text-gray-900" />
+              Nebula
+            </div>
           </div>
         </div>
       </section>
